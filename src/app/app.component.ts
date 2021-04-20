@@ -1,18 +1,31 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UserService} from './user/services/user.service';
+import {BehaviorSubject, Subject} from 'rxjs';
+import {User} from './user/models/user.model';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  list: any[] = [
-    'listItem1',
-    'listItem2',
-    'listItem3',
-  ];
+export class AppComponent implements OnInit, OnDestroy {
+
+  currentUser$: BehaviorSubject<User> = new BehaviorSubject<User>(null);
+  private unsubscribe$ = new Subject();
 
   constructor(public userService: UserService) {
+  }
+
+  ngOnInit(): void {
+    this.userService.loadUsers();
+    this.userService.getCurrentUser()
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(this.currentUser$);
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

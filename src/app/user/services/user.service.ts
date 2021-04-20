@@ -10,10 +10,7 @@ import { selectCurrentUser, selectUsers } from '../store/users.selectors';
 })
 export class UserService {
 
-  constructor(
-    private store: Store,
-  ) {
-  }
+  constructor(private store: Store) {}
 
   getUsers(): Observable<User[]> {
     return this.store.select(selectUsers);
@@ -25,5 +22,9 @@ export class UserService {
 
   getCurrentUser(): Observable<User> {
     return this.store.select(selectCurrentUser);
+  }
+
+  loadUsers(): void {
+    this.store.dispatch(loadUsers());
   }
 }

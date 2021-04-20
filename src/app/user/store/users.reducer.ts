@@ -1,4 +1,4 @@
-import {Action, createReducer, on} from '@ngrx/store';
+import { createReducer, on} from '@ngrx/store';
 import * as UsersActions from './users.actions';
 import {User} from '../models/user.model';
 
@@ -10,27 +10,18 @@ export interface State {
 }
 
 export const initialState: State = {
-  users: {
-    1: {
-      id: 1,
-      name: 'User1'
-    },
-    2: {
-      id: 2,
-      name: 'User2'
-
-    }
-  },
-  currentUserId: 1
+  users: [],
+  currentUserId: null
 };
 
 
-export const reducer = createReducer(
+export const usersReducer = createReducer(
   initialState,
 
   on(UsersActions.loadUserSuccess, (state, {users}) => ({
     ...state,
-    users
+    users,
+    currentUserId: 0
   })),
 
   on(UsersActions.switchUser, (state, {id}) => ({
