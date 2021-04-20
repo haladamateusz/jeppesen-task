@@ -29,8 +29,6 @@ export class UserSwitchComponent implements OnInit, OnDestroy {
     this.userService.switchUser(id);
   }
 
-
-
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
