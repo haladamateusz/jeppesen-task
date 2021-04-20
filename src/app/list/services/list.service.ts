@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { loadList } from '../store/list.actions';
+import { addItem, loadList } from '../store/list.actions';
 import { Observable } from 'rxjs';
-import { selectList } from '../store/list.selectors';
+import { selectList, selectUserIdAndNextItemId } from '../store/list.selectors';
 import { ListItem } from '../models/listItem.model';
 
 @Injectable({
@@ -17,7 +17,16 @@ export class ListService {
     return this.store.select(selectList);
   }
 
+  getUserIdAndNewItemId(): Observable<any> {
+    return this.store.select(selectUserIdAndNextItemId);
+  }
+
   loadItems(): void {
     this.store.dispatch(loadList());
   }
+
+  addNewItem(item: ListItem): void {
+    this.store.dispatch(addItem({item}));
+  }
+
 }

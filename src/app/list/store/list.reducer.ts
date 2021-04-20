@@ -21,5 +21,9 @@ export const listReducer = createReducer(
     list
   })),
 
+  on(listActions.addItem, (state, {item}) => ({
+    ...state,
+    list: [...state.list, item]
+  })),
 );
 

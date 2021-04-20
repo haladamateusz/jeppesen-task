@@ -1,8 +1,9 @@
-import {Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 import { ListService } from '../../services/list.service';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { ListItem } from '../../models/listItem.model';
+import { UserService } from '../../../user/services/user.service';
 
 @Component({
   selector: 'app-list-dashboard',

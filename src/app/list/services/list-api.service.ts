@@ -12,7 +12,7 @@ export class ListApiService {
 
   getItems(): Observable<any> {
     const localStorageItem = JSON.parse(localStorage.getItem('listItems'));
-    return localStorageItem === null ?
+    return localStorageItem == null ?
       this.httpService.get('assets/items.json') : of(localStorageItem.listItems);
   }
 }

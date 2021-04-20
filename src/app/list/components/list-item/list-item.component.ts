@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {ListItem} from '../../models/listItem.model';
+import { Component, Input } from '@angular/core';
+import { ListItem } from '../../models/listItem.model';
 
 @Component({
   selector: 'app-list-item',

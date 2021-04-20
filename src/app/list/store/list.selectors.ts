@@ -14,3 +14,10 @@ export const selectList = createSelector(
   }
 );
 
+export const selectUserIdAndNextItemId = createSelector(
+  selectListState,
+  selectCurrentUser,
+  (a, b) => {
+    return {userId: b.id, nextItemId: a.list.length - 1};
+  }
+);
