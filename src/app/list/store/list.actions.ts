@@ -10,5 +10,8 @@ export const loadListSuccess = createAction(
   props<{ list: ListItem[] }>()
 );
 
-
+export const addItem = createAction(
+  '[List] Add Item',
+  props<{ item: ListItem }>()
+);
 

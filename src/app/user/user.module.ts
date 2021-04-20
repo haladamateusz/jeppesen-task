@@ -6,8 +6,6 @@ import { UsersEffects } from './store/users.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [UserSwitchComponent],
   exports: [

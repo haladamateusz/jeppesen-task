@@ -1,9 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {UserService} from './user/services/user.service';
-import {BehaviorSubject, combineLatest, Subject} from 'rxjs';
-import {User} from './user/models/user.model';
-import {takeUntil} from 'rxjs/operators';
-import {ListService} from './list/services/list.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { UserService } from './user/services/user.service';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { User } from './user/models/user.model';
+import { takeUntil } from 'rxjs/operators';
+import { ListService } from './list/services/list.service';
 
 @Component({
   selector: 'app-root',

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { User} from '../../models/user.model';
+import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -10,7 +10,6 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./user-switch.component.scss']
 })
 export class UserSwitchComponent implements OnInit, OnDestroy {
-
   users$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>(null);
   currentUser$: BehaviorSubject<User> = new BehaviorSubject<User>(null);
   private unsubscribe$ = new Subject();
