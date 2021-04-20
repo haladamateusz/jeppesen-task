@@ -24,7 +24,7 @@ export class UserService {
     return this.store.select(selectCurrentUser);
   }
 
-  loadUsers(): void {
+  loadUsers(): void{
     this.store.dispatch(loadUsers());
   }
 }

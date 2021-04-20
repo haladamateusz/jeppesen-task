@@ -2,7 +2,8 @@
   <app-user-switch></app-user-switch>
   <div class="row">
     <div class="col-sm-12 text-center">
-      <h2 class="h2 mt-2 mb-5" *ngIf="currentUser$ | async as user">Logged in as {{ user.name}}</h2>
+      <h2 class="h2 mt-2 mb-5" *ngIf="currentUser$ | async as user">Logged in as {{ user.name }}</h2>
     </div>
   </div>
+  <app-list-dashboard></app-list-dashboard>
 </div>
